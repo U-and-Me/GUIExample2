@@ -29,12 +29,74 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.foodBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.foodBindingSource)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "짜장면",
+            "짬뽕",
+            "탕수육",
+            "라조기",
+            "동파육",
+            "양꼬치",
+            "마라탕"});
+            this.comboBox1.Location = new System.Drawing.Point(33, 45);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 20);
+            this.comboBox1.TabIndex = 0;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // listBox1
+            // 
+            this.listBox1.DataSource = this.foodBindingSource;
+            this.listBox1.DisplayMember = "Name";
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 12;
+            this.listBox1.Location = new System.Drawing.Point(33, 91);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(120, 88);
+            this.listBox1.TabIndex = 1;
+            this.listBox1.ValueMember = "Price";
+            // 
+            // foodBindingSource
+            // 
+            this.foodBindingSource.DataSource = typeof(GUIExample2.Food);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(599, 435);
+            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.comboBox1);
+            this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.foodBindingSource)).EndInit();
+            this.ResumeLayout(false);
+
+
+            foodBindingSource.Add(new Food() { Name = "짜장면", Price = 6000 });
+            foodBindingSource.Add(new Food() { Name = "짬뽕", Price = 7000 });
+            foodBindingSource.Add(new Food() { Name = "탕수육", Price = 14000 });
+            foodBindingSource.Add(new Food() { Name = "군만두", Price = 5500 });
+            foodBindingSource.Add(new Food() { Name = "꽃빵", Price = 3500 });
+            foodBindingSource.Add(new Food() { Name = "멘보샤", Price = 7900 });
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.BindingSource foodBindingSource;
+
     }
 }
 
